@@ -1,0 +1,35 @@
+//
+//  PreScreenViewController.swift
+//  Fitness App
+//
+//  Created by Amir on 07.12.2025.
+//
+
+import UIKit
+
+class PreScreenViewController: UIViewController {
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view.
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5, execute: {[weak self] in
+            guard let self = self else { return }
+            guard let new = storyboard?.instantiateViewController(identifier: "PreSecondViewController") as? PreSecondViewController else { return }
+            new.modalPresentationStyle = .fullScreen
+            self.present(new, animated: true)
+        })
+    }
+    
+
+    /*
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
+    }
+    */
+
+}
